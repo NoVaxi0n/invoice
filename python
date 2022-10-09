@@ -1,0 +1,50 @@
+#!/usr/bin/python3
+
+cust_name = input("Enter your name:")
+cust_address = input("Enter your address:")
+cust_city = input("Enter your City:")
+cust_state = input("Enter your State:")
+cust_zip = input("Enter your Zip Code:")
+
+print("")
+
+print("These are the current supplies available")
+opal = ("Opal for")
+money = ("$")
+items = {"Lava " + opal + ":": 5.99, "Emerald " + opal + ":": 7.99, "Crimson " + opal + ":": 9.99, "Dragon " + opal + ":": 11.99}
+for x in items:
+    print(x, items[x])
+no_Lava = input("How many Lava Opal do you want?:")
+no_Emerald = input("How many Emerald Opal do you want?:")
+no_Crimson = input("How many Crimson Red Opal do you want?:")
+no_Dragon = input("How many Dragon Scale Opal do you want?:")
+
+total_Lava = int(no_Lava) * float(items["Lava " + opal + ":"])
+total_Emerald = int(no_Emerald) * float(items["Emerald " + opal + ":"])
+total_Crimson = int(no_Crimson) * float(items["Crimson " + opal + ":"])
+total_Dragon = int(no_Dragon) * float(items["Dragon " + opal + ":"])
+
+total_charge = float(total_Emerald) + float(total_Lava) + float(total_Crimson) + float(total_Dragon)
+sales_tax = float(0.625 * (total_charge))
+res = round(sales_tax, 2)
+order = ("Your Total of this order including sales tax is: ")
+print(order + str(res) + (money))
+
+print("")
+print("Customer's Name: " + cust_name)
+print("Customer's Address: " + cust_address)
+print("Customer's City: " + cust_city)
+print("Customer's State: " + cust_state)
+print("Customer's Zip Code: " + cust_zip)
+
+myLava = "You brought {} Lava Opal at {} for {}$"
+print(myLava.format(no_Lava, items["Lava " + opal + ":"], total_Lava))
+myEmerald = "You brought {} Emerald Opal at {} for {}$"
+print(myEmerald.format(no_Emerald, items["Emerald " + opal + ":"], total_Emerald))
+myCrimson = "You brought {} Crimson Opal at {} for {}$"
+print(myCrimson.format(no_Crimson, items["Crimson " + opal + ":"], total_Crimson))
+myDragon = "You brought {} Dragon Opal at {} for {}$"
+print(myDragon.format(no_Dragon, items["Dragon " + opal + ":"], total_Dragon))
+
+mytotal = "The Total Amount Due is {}$"
+print(mytotal.format(res))
